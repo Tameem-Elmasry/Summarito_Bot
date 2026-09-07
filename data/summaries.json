@@ -1,1 +1,128 @@
-{}
+{
+  "النصوص": [
+    {
+      "name": "النص الأول - طيف سميره",
+      "fileId": "BQACAgQAAxkBAAIBImqetn2l4qSqZlaYwacqX0jae774AAJkIwACreX5UExBMpUHl6ZbPQQ",
+      "type": "document"
+    }
+  ],
+  "البلاغه": [
+    {
+      "name": "المجاز المرسل",
+      "fileId": "BQACAgQAAxkBAAIBJ2qeuGSp47dkxxsJ5eXxqZfBNo8qAAJlIwACreX5UN4rTRhkFpWePQQ",
+      "type": "document"
+    },
+    {
+      "name": "الاستعاره",
+      "fileId": "BQACAgQAAxkBAAIBLGqeufVuBevLT3qBhtbb1ak9VT5OAAJoIwACreX5UBNTrqVjypnqPQQ",
+      "type": "document"
+    }
+  ],
+  "الصرف": [
+    {
+      "name": "همزة الوصل",
+      "fileId": "BQACAgQAAxkBAAIBM2qeu0BmpeR99Cz7Ux1LUIBEu1rbAAJrIwACreX5UEgDTm5Qr6VYPQQ",
+      "type": "document"
+    },
+    {
+      "name": "همزة القطع",
+      "fileId": "BQACAgQAAxkBAAIBNmqeu2wXxEhaaNFswXk3gKzswdszAAJtIwACreX5UEoAAenDuajLYj0E",
+      "type": "document"
+    },
+    {
+      "name": "الإبدال والإعلال",
+      "fileId": "BQACAgQAAxkBAAIBOWqevQFRIxpH13kQhsfkFPJQc2jkAAJwIwACreX5UAcQXt_4AAH2Fj0E",
+      "type": "document"
+    }
+  ],
+  "النحو": [
+    {
+      "name": "النداء - الجزء 1",
+      "fileId": "BQACAgQAAxkBAAIBRGqevh24BRydT_2ZlpMPQ9VG_KnSAAJyIwACreX5UAyKnHBQhvYvPQQ",
+      "type": "document"
+    },
+    {
+      "name": "النداء - الجزء 2",
+      "fileId": "BQACAgQAAxkBAAIBR2qevjHoHWRKZNZiAR1R3IUv37DbAAJzIwACreX5UJMRLpdYO--CPQQ",
+      "type": "document"
+    }
+  ],
+  "الفقه": [
+    {
+      "name": "الطلاق",
+      "fileId": "BQACAgQAAxkBAAIBSmqevki4vLu4v9gHmAws_-xoQxsHAAJ0IwACreX5UCGeywQLDEgTPQQ",
+      "type": "document"
+    },
+    {
+      "name": "الرجعه",
+      "fileId": "BQACAgQAAxkBAAIBTWqevlXWNueaGSdm9RQuKEBgc9AxAAJ1IwACreX5UM7dRKdPtXFIPQQ",
+      "type": "document"
+    },
+    {
+      "name": "الظهار",
+      "fileId": "BQACAgQAAxkBAAIBUGqevpvY6xqMKD5SZDEpXPhz8cy1AAJ2IwACreX5UKNs1x_42EXxPQQ",
+      "type": "document"
+    }
+  ],
+  "التوحيد": [
+    {
+      "name": "السمعيات",
+      "fileId": "BQACAgQAAxkBAAIBU2qevrZ2suuILARK9BSQ3jOj7z0kAAJ3IwACreX5UGCiFQOAtmV3PQQ",
+      "type": "document"
+    },
+    {
+      "name": "الملائكه",
+      "fileId": "BQACAgQAAxkBAAIBVmqevs2ACjK1Qm2UyPu-L4tYSsMGAAJ4IwACreX5UEiphOieX0MiPQQ",
+      "type": "document"
+    },
+    {
+      "name": "الجن والشياطين",
+      "fileId": "BQACAgQAAxkBAAIBWWqevuBcLe6GCW-pA9mTNCSHP0fPAAJ5IwACreX5UJqGILQIraAbPQQ",
+      "type": "document"
+    },
+    {
+      "name": "الموت و أجل المقتول",
+      "fileId": "BQACAgQAAxkBAAIBXGqevvgd4Og2cM6hWY3AZm-F0UxPAAJ6IwACreX5UF_et-ruLC2BPQQ",
+      "type": "document"
+    }
+  ],
+  "Chemistry": [
+    {
+      "name": "Ch.1 - Lec.1 - 1",
+      "fileId": "BQACAgQAAxkBAAIBaWqev7oQhg9TGhDnZ_8RQDwN3hhNAAJ_IwACreX5UF1Vi_Jdz-qDPQQ",
+      "type": "document"
+    },
+    {
+      "name": "Ch.1 - Lec.1 - 2",
+      "fileId": "BQACAgQAAxkBAAIBbGqev9D_zbftUW83Z1KAgWrZtofoAAKAIwACreX5UNbtgClWcdsKPQQ",
+      "type": "document"
+    },
+    {
+      "name": "Ch.1 - Lec.1 - 3",
+      "fileId": "BQACAgQAAxkBAAIBb2qev9_oj_3Cpw1MK26maXrhXN7nAAKBIwACreX5UC7uJ4Gn3QYvPQQ",
+      "type": "document"
+    }
+  ],
+  "Physics": [
+    {
+      "name": "Ch.1 - Lec.1 + lec.2 - NOTES",
+      "fileId": "BQACAgQAAxkBAAIBcmqewBHExqxi-h3tLP3jpV6-alh5AAKCIwACreX5UEd-bP9ZfDn0PQQ",
+      "type": "document"
+    },
+    {
+      "name": "Ch.1 - Lec.1 + lec.2 - DEFENITIONS",
+      "fileId": "BQACAgQAAxkBAAIBdWqewC-JRkh_gCw_JH51xEEjLYl6AAKDIwACreX5UHgJvTN1EWLmPQQ",
+      "type": "document"
+    },
+    {
+      "name": "Ch.1 - Lec.1 + lec.2 - RULES",
+      "fileId": "BQACAgQAAxkBAAIBeGqewEFm7qtFGgEX5BmZRXf8VRcSAAKFIwACreX5UPeiLGguOgABXT0E",
+      "type": "document"
+    },
+    {
+      "name": "Ch.1 - Lec.1 + lec.2 - IMPORTANT",
+      "fileId": "BQACAgQAAxkBAAIBe2qewFZrONfIZv_LldVyDc4Ze4AMAAKGIwACreX5UE6zWGySg98kPQQ",
+      "type": "document"
+    }
+  ]
+}

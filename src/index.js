@@ -132,6 +132,8 @@ bot.action(/^addsubject:(.+)$/, async (ctx) => {
 
     addState.set(ctx.from.id, {
         subject,
+        chatId: ctx.chat.id,
+        promptMessageId: ctx.callbackQuery.message.message_id,
     });
 
     await ctx.answerCbQuery();
@@ -194,6 +196,8 @@ bot.on("document", async (ctx) => {
 
     addState.delete(ctx.from.id);
 
+    await bot.telegram.deleteMessage(state.chatId, state.promptMessageId);
+
     console.log("Received document:", file);
 
     await bot.telegram.sendMessage(
@@ -205,6 +209,13 @@ bot.on("document", async (ctx) => {
 
     await ctx.reply(
         `✅ Summary added!\n\n📚 Subject: ${state.subject}\n📖 Lesson: ${lessonName}`,
+        Markup.inlineKeyboard([
+            Markup.button.callback(
+                "Add another summary",
+                "addAnotherSubject:add",
+            ),
+            Markup.button.callback("Get summaries", "getSummary:add"),
+        ]),
     );
 });
 
@@ -246,6 +257,8 @@ bot.on("photo", async (ctx) => {
 
     addState.delete(ctx.from.id);
 
+    await bot.telegram.deleteMessage(state.chatId, state.promptMessageId);
+
     await bot.telegram.sendMessage(
         NOTIFICATION_GROUP_ID,
         `📥 New Summary #added!\n\n` +
@@ -255,6 +268,31 @@ bot.on("photo", async (ctx) => {
 
     await ctx.reply(
         `✅ Summary added!\n\n📚 Subject: ${state.subject}\n📖 Lesson: ${lessonName}`,
+        Markup.inlineKeyboard([
+            Markup.button.callback(
+                "Add another summary",
+                "addAnotherSubject:add",
+            ),
+            Markup.button.callback("Get summaries", "getSummary:add"),
+        ]),
+    );
+});
+
+bot.action("addAnotherSubject:add", async (ctx) => {
+    await ctx.answerCbQuery();
+
+    await ctx.reply(
+        "📚 Choose a subject to add a summary to:",
+        getAddSubjectKeyboard(),
+    );
+});
+
+bot.action("getSummary:add", async (ctx) => {
+    await ctx.answerCbQuery();
+
+    await ctx.reply(
+        "📚 Choose a subject to get it's summaries:",
+        getSubjectKeyboard(),
     );
 });
 
