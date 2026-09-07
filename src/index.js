@@ -1,4 +1,5 @@
 const { Telegraf, Markup } = require("telegraf");
+const express = require("express");
 const fs = require("fs");
 const path = require("path");
 require("dotenv").config();
@@ -7,9 +8,13 @@ const ADMIN_ID = Number(process.env.ADMIN_ID);
 const NOTIFICATION_GROUP_ID = process.env.NOTIFICATION_CHAT_ID;
 
 const addState = new Map();
-const feedbackState = new Set();
+const feedbackState = new Map();
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
+
+const app = express();
+
+app.use(express.json());
 
 const subjects = [
     "النحو",
@@ -191,6 +196,13 @@ bot.on("document", async (ctx) => {
 
     console.log("Received document:", file);
 
+    await bot.telegram.sendMessage(
+        NOTIFICATION_GROUP_ID,
+        `📥 New Summary #added!\n\n` +
+            `📚 Subject: ${state.subject}\n` +
+            `📖 Summary: ${lessonName}`,
+    );
+
     await ctx.reply(
         `✅ Summary added!\n\n📚 Subject: ${state.subject}\n📖 Lesson: ${lessonName}`,
     );
@@ -233,6 +245,13 @@ bot.on("photo", async (ctx) => {
     saveSummaries(summaries);
 
     addState.delete(ctx.from.id);
+
+    await bot.telegram.sendMessage(
+        NOTIFICATION_GROUP_ID,
+        `📥 New Summary #added!\n\n` +
+            `📚 Subject: ${state.subject}\n` +
+            `📖 Summary: ${lessonName}`,
+    );
 
     await ctx.reply(
         `✅ Summary added!\n\n📚 Subject: ${state.subject}\n📖 Lesson: ${lessonName}`,
@@ -331,14 +350,14 @@ bot.action("back:start", async (ctx) => {
 bot.action("feedback", async (ctx) => {
     await ctx.answerCbQuery();
 
-    feedbackState.add(ctx.from.id);
-
-    await ctx.reply(
+    const promptMessage = await ctx.reply(
         "💬 Please send your message here. \n اكتب الي عايز تقوله هنا وابعت👇",
         Markup.inlineKeyboard([
             [Markup.button.callback("❌ Cancel", "cancel:feedback")],
         ]),
     );
+
+    feedbackState.set(ctx.from.id, promptMessage.message_id);
 });
 
 bot.action("cancel:feedback", async (ctx) => {
@@ -350,7 +369,9 @@ bot.action("cancel:feedback", async (ctx) => {
 });
 
 bot.on("text", async (ctx) => {
-    if (!feedbackState.has(ctx.from.id)) {
+    const promptMessageId = feedbackState.get(ctx.from.id);
+
+    if (!promptMessageId) {
         return;
     }
 
@@ -367,8 +388,11 @@ bot.on("text", async (ctx) => {
 
     feedbackState.delete(ctx.from.id);
 
-    await ctx.reply(
-        "✅ Your feedback has been sent. Thank you! \n شكرا علي رسالتك ❤️",
+    await bot.telegram.editMessageText(
+        ctx.chat.id,
+        promptMessageId,
+        undefined,
+        "✅ Message sent. Thank you! \n شكرا علي رسالتك ❤️",
     );
 });
 
@@ -376,6 +400,16 @@ bot.action("nothing", async (ctx) => {
     await ctx.answerCbQuery();
 });
 
+// ! Starting Bot Server
+
 bot.launch();
 
-console.log("Bot is running...");
+// const PORT = process.env.PORT || 3000;
+
+// app.get("/", (req, res) => {
+//     res.send("Summarito Bot is running!");
+// });
+
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+// });
